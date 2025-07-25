@@ -1,11 +1,11 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
-	"version": "1.0.0",
+	"id": "break-timer",
+	"name": "番茄工作法计时器",
+	"version": "1.0.1",
 	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"description": "Obsidian番茄工作法计时器插件，支持定时休息提醒并将休息记录保存到每日日记中。",
+	"author": "Your Name",
+	"authorUrl": "https://yourwebsite.com",
+	"fundingUrl": "https://yourwebsite.com/support",
 	"isDesktopOnly": false
 }
