@@ -110,11 +110,16 @@
 
 .logs-table th {
     background-color: var(--background-secondary);
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--text-normal);
 }
 
-.logs-table tr:hover {
-    background-color: var(--background-modifier-hover);
+.logs-table tbody tr:hover {
+    background-color: var(--background-secondary-alt);
+}
+
+.logs-table td:last-child {
+    text-align: center;
 }
 
 .edit-btn {
@@ -122,13 +127,62 @@
     color: white;
     border: none;
     padding: 0.25rem 0.5rem;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     cursor: pointer;
     font-size: 0.875rem;
 }
 
 .edit-btn:hover {
     background-color: var(--interactive-accent-hover);
+}
+
+/* 标签徽章样式 */
+.tag-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    background-color: var(--tag-color, #6c757d);
+    white-space: nowrap;
+}
+
+/* 彩色行背景 */
+.logs-table tbody tr[data-tag="工作"] {
+    background-color: rgba(255, 107, 107, 0.05);
+}
+
+.logs-table tbody tr[data-tag="学习"] {
+    background-color: rgba(78, 205, 196, 0.05);
+}
+
+.logs-table tbody tr[data-tag="阅读"] {
+    background-color: rgba(255, 193, 7, 0.05);
+}
+
+.logs-table tbody tr[data-tag="写作"] {
+    background-color: rgba(108, 117, 125, 0.05);
+}
+
+.logs-table tbody tr[data-tag="运动"] {
+    background-color: rgba(40, 167, 69, 0.05);
+}
+
+.logs-table tbody tr[data-tag="休息"] {
+    background-color: rgba(23, 162, 184, 0.05);
+}
+
+.logs-table tbody tr[data-tag="娱乐"] {
+    background-color: rgba(111, 66, 193, 0.05);
+}
+
+.logs-table tbody tr[data-tag="其他"] {
+    background-color: rgba(108, 117, 125, 0.05);
+}
+
+.logs-table tbody tr[data-tag]:hover {
+    background-color: var(--background-secondary-alt);
 }
 
 /* 记录页面头部样式 */
@@ -176,4 +230,189 @@
 
 .stat-value {
     font-weight: 500;
+}
+
+/* 统计页面样式 */
+.stats-header {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.stats-header h3 {
+    margin: 0 0 1rem 0;
+    color: var(--text-normal);
+}
+
+.stats-date-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.stats-date-btn {
+    background-color: var(--background-secondary);
+    border: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+.stats-date-btn:hover {
+    background-color: var(--background-secondary-alt);
+}
+
+.current-period {
+    font-weight: 500;
+    margin: 0 0.5rem;
+    color: var(--text-normal);
+}
+
+.stats-tab-container {
+    display: flex;
+    border-bottom: 1px solid var(--background-modifier-border);
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.stats-tab {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+    margin: 0 0.5rem;
+}
+
+.stats-tab.active {
+    border-bottom-color: var(--interactive-accent);
+    color: var(--interactive-accent);
+    font-weight: 500;
+}
+
+.stats-tab:hover:not(.active) {
+    border-bottom-color: var(--background-modifier-hover);
+}
+
+.stats-content {
+    display: none;
+}
+
+.stats-content.active {
+    display: block;
+}
+
+/* 统计卡片样式 */
+.daily-summary,
+.weekly-summary,
+.yearly-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background-color: var(--background-secondary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid var(--background-modifier-border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stat-title {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-card .stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-normal);
+}
+
+/* 图表容器样式 */
+.chart-container {
+    background-color: var(--background-secondary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid var(--background-modifier-border);
+    margin-bottom: 1rem;
+}
+
+.chart-container canvas {
+    max-height: 600px;
+    height: 500px !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .daily-summary,
+    .weekly-summary,
+    .yearly-summary {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-date-navigation {
+        flex-wrap: wrap;
+    }
+    
+    .chart-container {
+        padding: 1rem;
+    }
+    
+    .chart-container canvas {
+        max-height: 500px;
+        height: 400px !important;
+    }
+}
+
+/* 空数据状态 */
+.empty-stats {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
+}
+
+.empty-stats .empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.empty-stats p {
+    margin: 0.5rem 0;
+}
+
+/* 加载状态 */
+.loading-stats {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid var(--background-modifier-border);
+    border-top-color: var(--interactive-accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }

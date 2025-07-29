@@ -11,7 +11,12 @@
 	"keywords": [],
 	"author": "",
 	"license": "MIT",
+	"dependencies": {
+		"chart.js": "^4.4.8",
+		"fs-extra": "^11.3.0"
+	},
 	"devDependencies": {
+		"@types/chart.js": "^2.9.41",
 		"@types/node": "^16.11.6",
 		"@typescript-eslint/eslint-plugin": "5.29.0",
 		"@typescript-eslint/parser": "5.29.0",
